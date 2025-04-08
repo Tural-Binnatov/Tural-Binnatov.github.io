@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    background-color: #f3e8d7;
+}
+
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+header img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+h3.gdpr-h3 {
+    margin-top: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-bottom: 10px;
+}
+
+li {
+    margin-left: 20px;
+}
