@@ -8,6 +8,7 @@ type NavLink = {
   href: string;
 };
 
+
 // Translations
 const navLinks = {
   sv: [

@@ -1,10 +1,40 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Mail } from "lucide-react";
+import { Contact2, Facebook, Instagram, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "./LanguageContext";
+
+const translations_info = {
+
+  sv: {
+    heading_h3: "Margaretas Bröd & Bakverk",
+    paragraph: "Hantverk och passion för bakning sedan 1930. Vi bakar med kärlek och de finaste ingredienserna.",
+    heading_h4: "Snabblänkar",
+    home: "Hem",
+    about: "Om oss",
+    products: "Sortiment",
+    contact: "Kontakt",
+    follow: "Följ oss"
+  },
+
+  en: {
+    heading_h3: "Margaretas Bröd & Bakverk",
+    paragraph: "Passion for baking since 1930. We bake with love and the finest ingrediens!",
+    heading_h4: "Quick links",
+    home: "Home",
+    about: "About Us",
+    products: "Product Range",
+    contact: "Contact",
+    follow: "Follow us"
+  },
+};
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t_info = translations_info[language];
+
+
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Tack för din prenumeration på vårt nyhetsbrev!");
@@ -40,27 +70,26 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-1">
-            <h3 className="text-1xl font-bold mb-4 font-playfair">Margaretas Bröd & Bakverk</h3>
+            <h3 className="text-1xl font-bold mb-4 font-playfair">{t_info.heading_h3}</h3>
             <p className="text-white/80 mb-4">
-              Hantverk och passion för bakning sedan 1930. Vi bakar med kärlek och de finaste ingredienserna.
+            {t_info.paragraph}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-1">
-            <h4 className="text-lg font-bold mb-4">Snabblänkar</h4>
-            <ul className="space-y-2 text-white/80">
-              <li><a href="/" className="hover:text-white transition-colors">Hem</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">Om Oss</a></li>
-              <li><a href="#products" className="hover:text-white transition-colors">Sortiment</a></li>
-              <li><a href="#order" className="hover:text-white transition-colors">Beställning</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Kontakt</a></li>
+            <h4 className="text-lg font-bold mb-4">{t_info.heading_h4}</h4>
+            <ul className="space-y-2 text-white/100">
+              <li><a href="/" className="hover:text-white transition-colors">{t_info.home}</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">{t_info.about}</a></li>
+              <li><a href="#products" className="hover:text-white transition-colors">{t_info.products}</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">{t_info.contact}</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h4 className="text-lg font-bold mb-4">Kontakt</h4>
+            <h4 className="text-lg font-bold mb-4">{t_info.contact}</h4>
             <ul className="space-y-2 text-white/80">
               <li>Frölundagatan 35a, 431 44 Mölndal</li>
               <li>031-271 85 8 & 070-023 43 63</li>
@@ -70,7 +99,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div className="md:col-span-1">
-            <h4 className="text-lg font-bold mb-4">Följ oss</h4>
+            <h4 className="text-lg font-bold mb-4">{t_info.follow}</h4>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/margaretasbrodochbakverk/"

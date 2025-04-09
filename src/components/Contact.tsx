@@ -1,38 +1,97 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "./LanguageContext";
+
+const translations = {
+  sv: {
+    heading: "Kontakt",
+    subheading: "Har du frågor eller funderingar? Kontakta oss gärna eller besök vårt bageri",
+    findUs: "Hitta oss",
+    openingHours: "Öppettider",
+    followUs: "Följ oss",
+    contactUs: "Kontakta oss",
+    name: "Namn",
+    email: "E-post",
+    message: "Meddelande",
+    sendMessage: "Skicka meddelande",
+    successToast: "Tack för ditt meddelande! Vi återkommer så snart som möjligt.",
+    days: {
+      monThu: "Måndag - Torsdag",
+      fri: "Fredag",
+      weekend: "Lördag & Söndag",
+      summerClosed: "Semesterstängt",
+      summerWeeks: "Vecka 29 - 31",
+    },
+  },
+  en: {
+    heading: "Contact",
+    subheading: "Have questions? Feel free to reach out or visit our bakery",
+    findUs: "Find Us",
+    openingHours: "Opening Hours",
+    followUs: "Follow Us",
+    contactUs: "Get in Touch",
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    sendMessage: "Send Message",
+    successToast: "Thanks for your message! We'll get back to you as soon as possible.",
+    days: {
+      monThu: "Monday - Thursday",
+      fri: "Friday",
+      weekend: "Saturday & Sunday",
+      summerClosed: "Closed for summer",
+      summerWeeks: "Week 29 - 31",
+    },
+  },
+};
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Tack för ditt meddelande! Vi återkommer så snart som möjligt.");
-    // Reset form
-    (e.target as HTMLFormElement).reset();
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    // Sending form data to Formspree API
+    const response = await fetch("https://formspree.io/f/myzelzgd", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      toast.success(t.successToast);
+      form.reset();
+    } else {
+      toast.error("Failed to send message.");
+    }
   };
 
   return (
     <section id="contact" className="container-section">
       <div className="text-center mb-12">
-        <h2 className="section-heading">Kontakt</h2>
-        <p className="section-subheading">
-          Har du frågor eller funderingar? Kontakta oss gärna eller besök vårt bageri
-        </p>
+        <h2 className="section-heading">{t.heading}</h2>
+        <p className="section-subheading">{t.subheading}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact information */}
+        {/* Contact info */}
         <div className="space-y-8">
           <div>
-            <h3 className="text-2xl font-bold text-bakery-brown mb-6 font-playfair">Hitta oss</h3>
-            
-            {/* Map */}
+            <h3 className="text-2xl font-bold text-bakery-brown mb-6 font-playfair">{t.findUs}</h3>
+            {/* Embed Google Map */}
             <div className="rounded-lg overflow-hidden h-64 mb-6">
               <iframe
-                src = "https://www.google.com/maps/place/Margaretas+br%C3%B6d+%26+bakverk/@57.654054,12.005203,15z/data=!4m6!3m5!1s0x464ff245bfffffff:0xd2e4ecade3445ee0!8m2!3d57.6540544!4d12.0052032!16s%2Fg%2F11bbrj77jt?hl=en&entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoASAFQAw%3D%3D"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2134.672307324667!2d12.002628276101792!3d57.65405724397474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff245bfffffff%3A0xd2e4ecade3445ee0!2sMargaretas%20br%C3%B6d%20%26%20bakverk!5e0!3m2!1sen!2sse!4v1688676173023!5m2!1sen!2sse"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -41,7 +100,7 @@ const Contact = () => {
               ></iframe>
             </div>
 
-            {/* Contact details */}
+            {/* Contact Details */}
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin className="text-bakery-brown mr-3 h-5 w-5 mt-1" />
@@ -63,35 +122,32 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Opening hours */}
+          {/* Opening Hours */}
           <div>
-            <h3 className="text-2xl font-bold text-bakery-brown mb-4 font-playfair">Öppettider</h3>
+            <h3 className="text-2xl font-bold text-bakery-brown mb-4 font-playfair">{t.openingHours}</h3>
             <div className="space-y-2 text-bakery-brown/80">
               <div className="flex justify-between">
-                <span>Måndag - Torsdag</span>
+                <span>{t.days.monThu}</span>
                 <span>07:00 - 18:00</span>
               </div>
               <div className="flex justify-between">
-                <span>Fredag</span>
+                <span>{t.days.fri}</span>
                 <span>08:00 - 16:00</span>
               </div>
               <div className="flex justify-between">
-                <span>Lördag & Söndag</span>
+                <span>{t.days.weekend}</span>
                 <span>08:00 - 16:00</span>
               </div>
-
               <div className="flex justify-between">
-                <span>Vecka 29 - 31</span>
-                <span>Semesterstängt</span>
+                <span>{t.days.summerWeeks}</span>
+                <span>{t.days.summerClosed}</span>
               </div>
-
-
             </div>
           </div>
 
-          {/* Social media */}
+          {/* Social media links */}
           <div>
-            <h3 className="text-2xl font-bold text-bakery-brown mb-4 font-playfair">Följ oss</h3>
+            <h3 className="text-2xl font-bold text-bakery-brown mb-4 font-playfair">{t.followUs}</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/margaretasbrodochbakverk/"
@@ -107,56 +163,48 @@ const Contact = () => {
               >
                 <Facebook size={20} />
               </a>
-
-              <a
-                href="/gdpr.html"
-                target="blank"
-                className="bg-bakery-brown text-white p-3 rounded-full hover:bg-bakery-brown/80 transition-colors"
-              >
-                GDPR
-              </a>
-
-
             </div>
           </div>
         </div>
 
-        {/* Contact form */}
+        {/* Contact Form */}
         <div className="bg-bakery-light p-8 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold text-bakery-brown mb-6 font-playfair">Kontakta oss</h3>
-          
+          <h3 className="text-2xl font-bold text-bakery-brown mb-6 font-playfair">{t.contactUs}</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-3">
-              <Label htmlFor="contactName" className="text-bakery-brown">Namn</Label>
+              <Label htmlFor="contactName" className="text-bakery-brown">{t.name}</Label>
               <Input
                 id="contactName"
+                name="name"
                 required
                 className="border-bakery-beige/50 focus:border-bakery-brown focus:ring-bakery-brown"
               />
             </div>
-            
+
             <div className="space-y-3">
-              <Label htmlFor="contactEmail" className="text-bakery-brown">E-post</Label>
+              <Label htmlFor="contactEmail" className="text-bakery-brown">{t.email}</Label>
               <Input
                 id="contactEmail"
+                name="email"
                 type="email"
                 required
                 className="border-bakery-beige/50 focus:border-bakery-brown focus:ring-bakery-brown"
               />
             </div>
-            
+
             <div className="space-y-3">
-              <Label htmlFor="contactMessage" className="text-bakery-brown">Meddelande</Label>
+              <Label htmlFor="contactMessage" className="text-bakery-brown">{t.message}</Label>
               <Textarea
                 id="contactMessage"
+                name="message"
                 required
                 rows={4}
                 className="border-bakery-beige/50 focus:border-bakery-brown focus:ring-bakery-brown"
               />
             </div>
-            
+
             <Button type="submit" className="btn-primary w-full">
-              Skicka meddelande
+              {t.sendMessage}
             </Button>
           </form>
         </div>
