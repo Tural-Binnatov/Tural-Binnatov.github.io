@@ -26,6 +26,6 @@ Welcome to the official website project for **Margaretas Bröd & Bakverk**, a pr
 
 ##  Tech Stack
 
-- **Frontend:** React, HTML5, CSS3, JavaScript, React, TypeScript
+- **Frontend:** HTML5, CSS3, JavaScript, React, TypeScript
 - **Styling:** CSS Modules / Tailwind CSS
 
