@@ -5,9 +5,9 @@ Welcome to the official website project for **Margaretas Bröd & Bakverk**, a pr
 
 ---
 
-##  Live Demo
+##  Live version of the current website
 
-> 🔗 [Coming Soon – Live Site Link]
+> 🔗 https://www.margaretas-bob.se/
 
 ---
 
