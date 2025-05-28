@@ -1,7 +1,7 @@
 
-#  Margaretas Bröd & Bakverk – Bakery Website
+#  Margaretas Bröd & Bakverk – Version
 
-Welcome to the official website project for **Margaretas Bröd & Bakverk**, a beloved Swedish bakery known for its traditional craftsmanship, locally sourced ingredients, and timeless flavors. This responsive and modern website serves as the digital storefront for the business, showcasing the story, product range, and custom ordering options for customers.
+Welcome to the official website project for **Margaretas Bröd & Bakverk**, a premium beloved Swedish bakery known for its traditional pastries, locally sourced ingredients, and timeless flavors. This is the remastered version of the current website. This is much more responsive and modern website that serves as the digital storefront for the business, showcasing the story, product range, and custom ordering options for customers.
 
 ---
 
@@ -26,21 +26,6 @@ Welcome to the official website project for **Margaretas Bröd & Bakverk**, a be
 
 ##  Tech Stack
 
-- **Frontend:** React, HTML5, CSS3, JavaScript (ES6+)
-- **Styling:** CSS Modules / Tailwind (depending on chosen version)
-- **Deployment:** GitHub Pages / Vercel / Netlify (optional)
+- **Frontend:** React, HTML5, CSS3, JavaScript, React, TypeScript
+- **Styling:** CSS Modules / Tailwind CSS
 
----
-
-##  Getting Started
-
-### Prerequisites
-- Node.js and npm installed on your machine
-
-### Installation
-
-```bash
-git clone https://github.com/yourusername/margaretas-brod.git
-cd margaretas-brod
-npm install
-npm start
