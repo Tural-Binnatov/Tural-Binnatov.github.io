@@ -1,7 +1,7 @@
 
 #  Margaretas Bröd & Bakverk – Version
 
-Welcome to the official website project for **Margaretas Bröd & Bakverk**, a premium beloved Swedish bakery known for its traditional pastries, locally sourced ingredients, and timeless flavors. This is the remastered version of the current website. This is much more responsive and modern website that serves as the digital storefront for the business, showcasing the story, product range, and custom ordering options for customers.
+Welcome to the official website project for **Margaretas Bröd & Bakverk**, a premium beloved Swedish bakery known for its traditional pastries, locally sourced ingredients, and timeless flavors. This is the **remastered version** of the current website. This is much more responsive and modern website that serves as the digital storefront for the business, showcasing the story, product range, and custom ordering options for customers.
 
 ---
 
