@@ -41,7 +41,7 @@ const productCategories: ProductCategory[] = [
           sv: "Klassiskt surdegsbröd bakat på råg och vete.",
           en: "Classic sourdough bread made with rye and wheat.",
         },
-        image: "/img/Till sortiment delen.jpg",
+        image: "/img/Testbild på surdegsbröd.png",
       },
       {
         id: "baguette",
@@ -51,6 +51,15 @@ const productCategories: ProductCategory[] = [
           en: "Crispy and airy baguette perfect for a cheese platter.",
         },
         image: "/img/Till sortiment delen.jpg",
+      },
+        {
+        id: "Rhubarb Bread",
+        name: { sv: "Rabarber Bröd", en: "Rhubarb Bread" },
+        description: {
+          sv: "Krämiga rabarber och vaniljfyllningen i de frasiga bröden är tillbaka och perfekt till sommarsäsongen!",
+          en: "Creamy rhubarb and vanilla filling in the crispy breads are back, perfect for the summer season!",
+        },
+        image: "/img/RabarberBröd.jpg",
       },
     ],
   },
@@ -65,7 +74,7 @@ const productCategories: ProductCategory[] = [
           sv: "Klassiska kanelbullar, alltid nybakade!",
           en: "Classic cinnamon buns, always freshly baked!",
         },
-        image: "/img/Kanelbullar.jpg",
+        image: "/img/Kanelbullarna - den riktiga.png",
       },
       {
         id: "cardamom-bun",
@@ -166,6 +175,19 @@ const productCategories: ProductCategory[] = [
         },
         image: "/img/VårSallad.jpg",
       },
+       {
+        id: "Greek Sallad",
+        name: { sv: "Grekisk Sallad ", en: "Greek Sallad" },
+        description: {
+          sv: "En smakrik och mättande sallad med touch av Grekland med fantastiskt god fetaost och paprika!",
+          en: "A tasty and filling salad with a touch of Greece with delicious taste of feta cheese and peppers! ",
+        },
+        image: "/public/img/Grekisk Sallad.jpg",
+      },
+
+
+
+
     ],
   },
 

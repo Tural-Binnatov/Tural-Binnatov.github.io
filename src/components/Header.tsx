@@ -53,9 +53,9 @@ const Header = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <Link to="/" className="font-playfair">
+          <Link to="" className="font-playfair">
             <img
-              src="/lovable-uploads/c92d840b-e477-427f-8e26-3fc3ad009c40.png"
+              src="/img/Margaretas-logo.png"
               alt="Margaretas Bageri Konditori Café"
               className="h-12 md:h-14"
             />
@@ -68,7 +68,7 @@ const Header = () => {
             <a
               key={link.label}
               href={link.href}
-              className={`transition-colors font-medium ${isScrolled ? 'text-black' : 'text-white'} hover:${isScrolled ? 'text-gray-600' : 'text-bakery-brown/100'}`}
+              className={`transition-colors font-medium ${isScrolled ? 'text-bakery-brown' : 'text-white'} hover:${isScrolled ? 'text-gray-600' : 'text-bakery-brown/100'}`}
             >
               {link.label}
             </a>
@@ -76,7 +76,7 @@ const Header = () => {
           
           <button 
             onClick={toggleLanguage}
-            className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:${isScrolled ? 'text-gray-600' : 'text-bakery-brown/100'} transition-colors`}
+            className={`flex items-center ${isScrolled ? 'text-bakery-brown' : 'text-white'} hover:${isScrolled ? 'text-gray-600' : 'text-bakery-brown/100'} transition-colors`}
           >
             <Globe size={18} className="mr-1" />
             <span>{language === "sv" ? "Svenska" : "English"}</span>
@@ -85,7 +85,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-bakery-brown p-2">
+          <button onClick={toggleMenu} className={`p-2 transition-colors duration-300 ${isScrolled ? "text-bakery-brown" : "text-white"}`}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

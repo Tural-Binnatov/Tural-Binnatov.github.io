@@ -28,6 +28,9 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2672&auto=format&fit=crop')",
+
+          // The comment link is their product range picture that can be adjusted and changes upon request :)
+          /*backgroundImage: "url(img/Till sortiment delen.jpg')",*/  
         }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
